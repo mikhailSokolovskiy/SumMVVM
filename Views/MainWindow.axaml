@@ -1,0 +1,28 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaApplication4.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaApplication4.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaApplication4">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+   <StackPanel>
+       <!--Binding, собственно, соединяет текстовое поле со свойством в VM -->
+       <!--UpdateSourceTrigger, в данном случае, выполняет передачу значение в VM в момент ввода -->
+        <TextBox Width="30" Text="{Binding Number1}"/>
+        <TextBox Width="30" Text="{Binding Number2}"/>
+        <!--Mode=OneWay необходим для призязки свойства только для чтения -->
+        <TextBox Width="30" Text="{Binding Number3, Mode=OneWay}" IsReadOnly="True"/>
+   </StackPanel>
+
+</Window>
